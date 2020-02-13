@@ -1,4 +1,5 @@
 #include "Zombie.h"
+#include "Framework/Animation.h"
 
 Zombie::Zombie() {
 	// Setup walk animation
@@ -25,9 +26,11 @@ void Zombie::update(float dt) {
 void Zombie::handleInput(float dt) {
 	if (input->isKeyDown(sf::Keyboard::D)) {
 		move(75 * dt, 0);
+		walk.setFlipped(false);
 	}
 	else if (input->isKeyDown(sf::Keyboard::A)) {
 		move(-75 * dt, 0);
+		walk.setFlipped(true);
 	}
 
 	if (input->isKeyDown(sf::Keyboard::S)) {
@@ -37,6 +40,3 @@ void Zombie::handleInput(float dt) {
 		move(0, -45 * dt);
 	}
 }
-
-
-// This is a test please ignore
